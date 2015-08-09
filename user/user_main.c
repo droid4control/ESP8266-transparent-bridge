@@ -76,12 +76,12 @@ void user_init(void)
 		UartDev.data_bits = GETUART_DATABITS(flash_param->uartconf0);
 		UartDev.parity = GETUART_PARITYMODE(flash_param->uartconf0);
 		UartDev.stop_bits = GETUART_STOPBITS(flash_param->uartconf0);
-		uart_init(flash_param->baud, BIT_RATE_115200);
+		uart_init(flash_param->baud, BIT_RATE_19200);
 	#else
 		UartDev.data_bits = EIGHT_BITS;
-		UartDev.parity = NONE_BITS;
+		UartDev.parity = EVEN_BITS;
 		UartDev.stop_bits = ONE_STOP_BIT;
-		uart_init(BIT_RATE_115200, BIT_RATE_115200);
+		uart_init(BIT_RATE_19200, BIT_RATE_19200);
 	#endif
 	os_printf("size flash_param_t %d\n", sizeof(flash_param_t));
 
